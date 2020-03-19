@@ -1,0 +1,3 @@
+print('Alô, mundo!)
+# ou ainda, usando ":
+print("Alô, mundo!")

@@ -1,2 +1,2 @@
-# MachineLearnigBrazil
+# MachineLearningBrazil
 Machine Learning Repository

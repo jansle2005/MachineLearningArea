@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Mar 23 18:46:36 2020
-@author: Saraiva
+@author: Jansle Sousa
 """
 from twitterscraper import query_tweets
 import datetime as dt

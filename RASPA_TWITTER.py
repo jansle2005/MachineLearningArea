@@ -7,12 +7,20 @@ from twitterscraper import query_tweets
 import datetime as dt
 import pandas as pd
 
+#data de início dos Twitters a serem buscados
 begin_date=dt.date(2020,3,22)
+
+##data de início dos Twitters a serem buscados
 end_date=dt.date(2020,3,23)
 
+#limite de Twitters scrapeados
 limite=1000
+
+#idioma pesquisado (nem precisava dada a palavrava a ser buscada)
 lang="Portuguese"
-palavra="damares"
+
+#palavra a ser buscada nos Twitters
+palavra="escreva_aqui_a_palavra_que_vc_quer_buscar"
 
 #Efetuando a busca da palvra chave acima, no intervalo de dias acima
 tweets=query_tweets(palavra, begindate=begin_date, enddate=end_date, limit=limite, lang=lang)
@@ -50,30 +58,48 @@ stringtexto=""
  #       for j in range(word_count.at[col,'count']):
   #         stringtexto=stringtexto+" "+i
    # col=col+1
+   
+#mile stone pra saber onde o programa está, ao rodar
 print('1')
+
+#Montado a string gigante que sera usada pra gerar a cloud
 summary = df.dropna(subset=['text'], axis=0)['text']
 stringtexto =" ".join(s for s in summary)
-        
+
+#mile sstone
 print('2')      
 print("stringtexto")
 print(stringtexto) 
+
+#mile stone
 print('3')
+
 # lista de stopword
 stopwords = set(STOPWORDS)
 stopwords.update([palavra,"tudo","sua","da", "meu", "em", "você", "de", "ao", "os", "com", "que", "https", "status", "para", "esse","pq","até","tá","só","vai","vou","ou","twitter","rt","bolsonaro"])
+
+#mile stone
 print('4')
-print("# gerar uma wordcloud")
+
+# gerar uma wordcloud")
 cloud = WordCloud(stopwords=stopwords,background_color="black",width=1600, height=800).generate(stringtexto)
+
+#mile stone
 print('5')
-print("# mostrar a imagem final")
+
+"# mostrar a imagem final"
 fig, ax = plt.subplots(figsize=(10,6))
 ax.imshow(cloud, interpolation='bilinear')
 ax.set_axis_off()
+
 print('6')
+
 plt.imshow(cloud);
 now=datetime.now()
 AGORA=str(now.second)
 filename=AGORA+'damares.png'
+
+#salva a figura
 cloud.to_file(filename)
     
 

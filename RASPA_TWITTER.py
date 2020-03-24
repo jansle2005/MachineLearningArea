@@ -97,7 +97,7 @@ print('6')
 plt.imshow(cloud);
 now=datetime.now()
 AGORA=str(now.second)
-filename=AGORA+'damares.png'
+filename=AGORA+PALAVRA+'WORD_CLOUDpng'
 
 #salva a figura
 cloud.to_file(filename)
